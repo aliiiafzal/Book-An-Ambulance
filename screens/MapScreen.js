@@ -8,6 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import RideOptionCard from '../components/RideOptionCard';
 import { Icon } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
+import Slidebar from '../components/DrawerContent';
 
 
 const MapScreen = () => {
@@ -15,17 +16,7 @@ const MapScreen = () => {
     const navigation = useNavigation();
 
     return (
-
         <View>
-
-            <TouchableOpacity
-                onPress={() => navigation.navigate('HomeScreen')}
-                style={tw`bg-gray-100 absolute top-16 left-8 z-50 p-3 rounded-full shadow-lg`}
-            >
-                <Icon name="menu" />
-            </TouchableOpacity>
-
-
             <View style={tw`h-1/2`}>
                 <Map />
             </View>
@@ -53,5 +44,4 @@ const MapScreen = () => {
 };
 
 export default MapScreen
-
 const styles = StyleSheet.create({})

@@ -4,29 +4,28 @@ import { FlatList } from 'react-native-gesture-handler';
 import { Icon } from 'react-native-elements';
 import tw from 'tailwind-react-native-classnames';
 
-
 const data = [
     {
         id: "123",
         icon: "home",
         location: "Home",
-        destination: "Code Street, London, UK",
+        destination: "Main Street, Lahore, PAK",
     },
     {
         id: "456",
         icon: "work",
         location: "Work",
-        destination: "London Eye, London, UK",
+        destination: "App Developer, Lahore, PAK",
     },
 ];
 
 const NavFavourites = () => {
-
     return (
         <FlatList
             data={data}
             keyExtractor={(item) => item.id}
-            ItemSeparatorComponent={() => <View style={[tw`bg-gray-200`, { height: 0.5 }]} />}
+            ItemSeparatorComponent={() => (<View style={[tw`bg-gray-200`, { height: 0.5 }]} />
+            )}
             renderItem={({ item: { location, destination, icon } }) => (
                 <TouchableOpacity style={tw`flex-row items-center p-5`}>
                     <Icon
@@ -43,10 +42,8 @@ const NavFavourites = () => {
                 </TouchableOpacity>
             )}
         />
-
     )
 }
 
 export default NavFavourites
-
 const styles = StyleSheet.create({})

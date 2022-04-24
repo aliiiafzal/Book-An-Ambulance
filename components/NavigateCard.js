@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, ImageEditor } from 'react-native'
 import tw from 'tailwind-react-native-classnames'
 import { GOOGLE_MAPS_APIKEY } from "@env";
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
@@ -29,16 +29,17 @@ const NavigateCard = () => {
                                 setDestination({
                                     location: details.geometry.location,
                                     description: data.description,
-                                }));
-                            navigation.navigate('RideOptionCard')
+                                })
+                            );
+                            navigation.navigate('RideOptionCard');
                         }}
                         enablePoweredByContainer={false}
                         query={{
                             key: GOOGLE_MAPS_APIKEY,
                             language: "en",
                         }}
-                        nearbyPlacesAPI='GooglePlaceSearch'
-                        debounce={300}
+                        nearbyPlacesAPI='GooglePlacesSearch'
+                        debounce={100}
                     />
                 </View>
                 <NavFavourites />
@@ -57,26 +58,12 @@ const NavigateCard = () => {
                     />
                     <Text style={tw`text-white text-center`}>Rides</Text>
                 </TouchableOpacity>
-
-                <TouchableOpacity
-                    style={tw`flex flex-row justify-between w-24 px-4 py-3 rounded-full`}
-                >
-                    <Icon
-                        name="fast-food-outline"
-                        type="ionicon"
-                        color="black"
-                        size={16}
-                    />
-                    <Text style={tw`text-center`}>Eats</Text>
-                </TouchableOpacity>
             </View>
-
         </SafeAreaView>
     )
 }
 
 export default NavigateCard
-
 const toInputBoxStyles = StyleSheet.create({
     container: {
         backgroundColor: "white",
@@ -91,6 +78,6 @@ const toInputBoxStyles = StyleSheet.create({
     textInputContainer: {
         paddingHorizontal: 20,
         paddingBottom: 0,
-    }
-})
+    },
+});
 
